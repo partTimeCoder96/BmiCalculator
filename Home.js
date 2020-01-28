@@ -38,9 +38,13 @@ function Home(props){
   const [height,setHeight]=useState(1);
   const [weight,setWeight]=useState(1);
   const [age,setAge]=useState(1);
+  const [gender,setGender]=useState('');
 
   useEffect(()=>{
-
+    console.log('use effect called',props.bmiResult);
+    if(props.bmiResult.bmi){
+      props.navigation.navigate('BmiResult');
+    }
   },[props.bmiResult])
  const decreaseWeight=()=>{
    console.log('decreaseweight funcation called');
@@ -72,7 +76,7 @@ function Home(props){
 
    const calculateBmi=()=>{
      console.log('calculate bmi called')
-    props.onclick(height,weight,age)
+    props.onclick(gender,height,weight,age)
    }
 
   return(
@@ -85,16 +89,19 @@ function Home(props){
 
     <View style={styles.gender}>
 
-      <View style={styles.male}>
+      <TouchableOpacity style={styles.male} onPress={()=>setGender('male')}>
     <Image source={require('./male.png')} style={styles.genderImage}/>
       <Text  style={styles.genderText}>Male</Text>
-      </View>
+      </TouchableOpacity>
+      
 
 
-      <View style={styles.female}>
+      
+      <TouchableOpacity style={styles.male}>
       <Image source={require('./woman.png')} style={styles.genderImage}/>
       <Text style={styles.genderText}>Female</Text>
-      </View>
+      </TouchableOpacity>
+      
     </View>
 
     <View style={styles.height}>
@@ -159,16 +166,17 @@ function Home(props){
   )
 } 
 
-const mapStateToProps=(state)=>{
+const mapStateToProps= state =>{
+  console.log('state.BmiCalculaterReducer',state.BmiCalculaterReducer.bmi);
   return{
-    bmiResult:state.BmiCalculaterReducer
+    bmiResult:state.BmiCalculaterReducer.bmi
   } 
 }
 
 const mapDispatchToProps=(dispatch)=>{
 return{
-onclick:(height,weight,age)=>
-  dispatch(calculateBmi(height,weight,age))
+onclick:(gender,height,weight,age)=>
+  dispatch(calculateBmi(gender,height,weight,age))
 }
 }
 

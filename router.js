@@ -6,7 +6,7 @@ import {createAppContainer} from 'react-navigation';
 const stackNavigation=createStackNavigator(
     {
         Home:Home,
-      //  BmiResult:BmiResult,
+       BmiResult:BmiResult,
 },{
     defaultNavigationOptions:{
         header:null,
