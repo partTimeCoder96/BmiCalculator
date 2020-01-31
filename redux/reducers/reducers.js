@@ -1,4 +1,4 @@
-import {CALCULATE_BMI} from '../actions/type';
+import {CALCULATE_BMI,DELETE_DATA} from '../actions/type';
 
 
 const initial_state={
@@ -13,6 +13,11 @@ export default (state=initial_state,action)=>{
             return{
                 ...state,
                 bmi:payload
+            }
+        
+        case DELETE_DATA:
+            return{
+                bmi:'',
             }
         default:
             return state   

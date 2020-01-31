@@ -1,5 +1,6 @@
 import {
-CALCULATE_BMI
+CALCULATE_BMI,
+DELETE_DATA
 } from './type.js'
 
 
@@ -91,4 +92,11 @@ if(bmi > 40){
         }
     })
 }
+}
+
+export const deleteData=()=>async dispatch =>{
+    console.log('delete action called');
+dispatch({
+    type:DELETE_DATA
+})
 }

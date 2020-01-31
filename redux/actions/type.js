@@ -1,1 +1,3 @@
 export const CALCULATE_BMI='CALCULATE-BMI';
+
+export const DELETE_DATA='DELETE-DATA';

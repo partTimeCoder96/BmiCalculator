@@ -45,7 +45,7 @@ function Home(props){
     if(props.bmiResult.bmi){
       props.navigation.navigate('BmiResult');
     }
-  },[props.bmiResult])
+  },[props.bmiResult.bmi])
  const decreaseWeight=()=>{
    console.log('decreaseweight funcation called');
    if(weight <=0){
@@ -156,7 +156,7 @@ function Home(props){
     </View>
 
     <View>
-    <Button onPress={calculateBmi} primary style={{backgroundColor:'#e91e63',justifyContent:'center'}}><Text style={{fontSize:20}}>Calculate</Text></Button>
+    <Button onPress={calculateBmi} primary style={{backgroundColor:'#2BAE66FF',justifyContent:'center'}}><Text style={{fontSize:30,color:'#FCF6F5FF'}}>Calculate</Text></Button>
     </View>
     
   </View>
@@ -184,7 +184,7 @@ export default connect(mapStateToProps,mapDispatchToProps)(Home)
 const styles = StyleSheet.create({
 container:{
   flex:1,
-  backgroundColor:"#220d65"
+  backgroundColor:"#FCF6F5FF"
 },
 mainText:{
   fontSize:25,
@@ -192,32 +192,32 @@ mainText:{
   textAlign:'center'
 },
 header:{
-  backgroundColor:'#220d65',
+  backgroundColor:'#2BAE66FF',
   justifyContent:'center',
   alignItems:'center',
 },
 gender:{
   width:'100%',
   height:150,
-  backgroundColor:'#cf84df',
+  backgroundColor:'#FCF6F5FF',
   flexDirection:'row',
   //padding:10
 },
 male:{
   width:'45%',
   height:130,
-  backgroundColor:'#7f73a5',
+  backgroundColor:'#2BAE66FF',
   margin:'2.5%'
 },
 female:{
   width:'45%',
   height:130,
-  backgroundColor:'#7f73a5',
+  backgroundColor:'#2BAE66FF',
   margin:'2.5%'
 },
 height:{
   width:'90%',
-  backgroundColor:'#7f73a5',
+  backgroundColor:'#2BAE66FF',
   height:150,
   margin:'5%'
 },
